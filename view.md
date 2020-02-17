@@ -64,6 +64,7 @@
 |pg_shadow        | 모든 데이터베이스 사용자|
 |pg_shdepend      | 공유 객체, 즉 사용자 / 테이블 / 역할에 대한 종속성|
 |pg_stat_*        | 일반적인 서버 활동 및 행 수준 액세스 통계|
+
 |pg_statio_*      | 디스크 블록 레벨 액세스 통계.|
 |pg_statistic     | 플래너 통계.|
 |pg_stats         | pg_statistic 이상의 정보|
@@ -77,3 +78,44 @@
 |pg_tables        | 모든 테이블.|
 |pg_user          | 모든 데이터베이스 사용자|
 |pg_views         | 모든 데이터베이스 뷰|
+
+
+## pg_stat_* / pg_statio 상세 항목
+|VIEW NAME	| DESCRIPTION|
+|-----------|------------|
+|pg_stat_activity                  | 서버 프로세스 당 하나의 행으로 상태 및 현재 쿼리와 같은 해당 프로세스의 현재 활동과 관련된 정보를 표시     |
+|pg_stat_all_indexes               | 현재 데이터베이스의 각 인덱스에 대해 하나의 행으로, 해당 특정 인덱스에 대한 액세스에 대한 통계가 표시
+|pg_stat_all_tables                | 현재 데이터베이스의 각 테이블마다 하나의 행으로, 해당 특정 테이블에 대한 액세스에 대한 통계가 표시
+|pg_stat_archiver                  | WAL 아카이버 프로세스 활동에 대한 통계를 표시
+|pg_stat_bgwriter                  | 백그라운드 기록기 프로세스의 활동에 대한 통계 표시
+|pg_stat_database                  | 데이터베이스 전체에 대한 통계를 보여주는 데이터베이스 당 하나의 행으로 표시
+|pg_stat_database_conflicts        | 대기 서버에서의 복구와의 충돌로 인한 쿼리 취소에 대한 데이터베이스 전체 통계
+|pg_stat_progress_vacuum           | 각 백엔드 process 별 VACUUM현재 진행 상황을 보여주는
+|pg_stat_replication               | WAL sender process 당 하나의 행으로, sender에 연결된 stand by 서버로의 복제에 대한 통계가 표시
+|pg_stat_ssl                       | 연결 당 하나의 행 (일반 및 복제)으로이 연결에 사용 된 SSL에 대한 정보가 표시
+|pg_stat_subscription              | 서브 스크립 션 작업자에 대한 정보를 표시
+|pg_stat_sys_indexes               | pg_stat_all_indexes시스템 테이블의 인덱스 만 표시된다는 점을 제외하고 와 동일
+|pg_stat_sys_tables                | pg_stat_all_tables시스템 테이블 만 표시된다는 점을 제외하고 와 동일 
+|pg_stat_user_functions            | 추적 된 각 기능에 대해 한 행씩 해당 기능의 실행에 대한 통계를 표시
+|pg_stat_user_indexes              | pg_stat_all_indexes사용자 테이블의 인덱스 만 표시된다는 점을 제외하고 와 동일
+|pg_stat_user_tables               | pg_stat_all_tables사용자 테이블 만 표시된다는 점을 제외하고 와 동일
+|pg_stat_wal_receiver              | 해당 수신자의 연결된 서버에서 WAL 수신자에 대한 통계를 표시
+|pg_stat_xact_all_tables           | pg_stat_all_tables와 비슷하지만 pg_stat_all_tables 및 관련 뷰에 아직 포함되지 않은 현재 트랜잭션 내에서 지금까지 수행 한 작업을 계산
+|pg_stat_xact_sys_tables           | pg_stat_xact_all_tables시스템 테이블 만 표시된다는 점을 제외하고 와 동일 합
+|pg_stat_xact_user_functions       | pg_stat_user_functions과 비슷하지만 현재 트랜잭션 (pg_stat_user_functions에 아직 포함되지 않은) 동안의 call만 계산
+|pg_stat_xact_user_tables          | pg_stat_xact_all_tables사용자 테이블 만 표시된다는 점을 제외하고 와 동일 합니다.
+|pg_statio_all_indexes             | 현재 데이터베이스의 각 인덱스마다 하나의 행으로, 해당 특정 인덱스의 I / O에 대한 통계가 표시
+|pg_statio_all_sequences           | 현재 데이터베이스의 각 시퀀스마다 하나의 행으로, 해당 특정 시퀀스의 I / O에 대한 통계가 표시
+|pg_statio_all_tables              | 현재 데이터베이스의 각 테이블마다 하나의 행으로, 해당 특정 테이블의 I / O에 대한 통계가 표시
+|pg_statio_sys_indexes             | pg_statio_all_indexes시스템 테이블의 인덱스 만 표시된다는 점을 제외하고 와 동일
+|pg_statio_sys_sequences           | pg_statio_all_sequences시스템 시퀀스 만 표시된다는 점을 제외하고 와 동일
+|pg_statio_sys_tables              | pg_statio_all_tables시스템 테이블 만 표시된다는 점을 제외하고 와 동일
+|pg_statio_user_indexes            | pg_statio_all_indexes사용자 테이블의 인덱스 만 표시된다는 점을 제외하고 와 동일
+|pg_statio_user_sequences          | pg_statio_all_sequences사용자 시퀀스 만 표시된다는 점을 제외하고 와 동일
+|pg_statio_user_tables             | pg_statio_all_tables사용자 테이블 만 표시된다는 점을 제외하고 와 동일
+|pg_statistic                      | 
+|pg_statistic_ext                  | 
+|pg_statistic_ext_name_index       | 
+|pg_statistic_ext_oid_index        | 
+|pg_statistic_ext_relid_index      | 
+|pg_statistic_relid_att_inh_index  | 
