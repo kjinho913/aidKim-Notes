@@ -64,7 +64,6 @@
 |pg_shadow        | 모든 데이터베이스 사용자|
 |pg_shdepend      | 공유 객체, 즉 사용자 / 테이블 / 역할에 대한 종속성|
 |pg_stat_*        | 일반적인 서버 활동 및 행 수준 액세스 통계|
-
 |pg_statio_*      | 디스크 블록 레벨 액세스 통계.|
 |pg_statistic     | 플래너 통계.|
 |pg_stats         | pg_statistic 이상의 정보|
